@@ -1,0 +1,327 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1d1d1d;
+  font-family: inter;
+  overflow: hidden;
+}
+
+/* Vertical Text Starting at the Top */
+.vertical-text-container {
+  position: absolute;
+  top: 40px; 
+  left: 50px; 
+  text-align: center;
+  z-index: 5;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg); 
+  font-size: 1em;
+  font-family: inter;
+  color: white;
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase; 
+  
+}
+
+.vertical-line {
+  height: 100px;
+  width: 2px; 
+  background-color: white; 
+  margin-left: 12px;
+  margin-top: 10px;
+}
+
+  
+.slider-container {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+  
+.large-image {
+  width: 70%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.small-image {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  width: 40%;
+  height: 60%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+}
+
+.overlay-text {
+  position: absolute;
+  right: 5%;
+  top: 30%;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  text-align: left;
+  z-index: 3;
+  transform: translateY(-100%); /* start off-screen above */
+  transition: transform 1s ease-in-out; /* transition effect for moving down */
+
+}
+
+.overlay-text h1 {
+  font-weight: bold;
+  font-size: 4.1em;
+  line-height: 1.2; /* space between lines */
+  max-width: 100%;
+}
+
+
+.overlay-text p {
+  font-size: 1.2em;
+}
+
+.discover-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: background 0.3s;
+}
+  
+.discover-btn:hover {
+  background: white;
+  color: black;
+}
+
+.arrows-wrapper {
+  position: absolute;
+  bottom: -4px; /* position arrows below slider */
+  right: 130px; /* align arrows to the right edge of slider */
+  display: flex;
+  gap: 10px; /* space between arrows */
+}
+
+button.prev, button.next {
+  font-size: 2em;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+  
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button:hover {
+  color: #b8b8b8; 
+}
+  
+
+
+/* Dots container */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+  
+/* Individual dot styles */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+  
+/* Active dot style */
+.dot.active {
+  background-color: #f0f0f0;
+  width: 20px;
+  height: 10px;
+  border-radius: 40%;
+}
+
+/* Tablets responsive styles */
+@media (max-width: 768px) {
+  .vertical-text-container {
+    left: 30px; 
+  }
+
+  .vertical-text {
+    font-size: 0.8em; 
+  }
+
+  .vertical-line {
+    height: 80px; 
+  }
+
+  .slider-container {
+    width: 90vw; /* reduce the width */
+    height: 60vh;
+  }
+
+  .overlay-text {
+    position: absolute;
+    right: 10%;
+    top: 20%;  
+  }
+  
+  .overlay-text h1 {
+    font-size: 2em;
+  }
+
+  .overlay-text h1 span {
+    display: block; /* each word a block element */
+    margin: 0; /* default margin */
+  }
+  .overlay-text p span {
+    display: block; /* each word a block element */
+    margin: 0; /* default margin */
+  }
+
+
+  .overlay-text p {
+    font-size: 0.8em;
+  }
+    
+  .small-image {
+    width: 35%;
+    height: 50%;
+    top: 25%;
+    left: 10%;  /* increase overlap */
+    transform: translateY(-50%) translateX(0);  /* image overlapping */
+  }
+    
+  .large-image {
+    width: 60%;
+  }
+    
+  .arrows-wrapper {
+    bottom: -1px; /* spacing for smaller screens */
+    right: 5px; /* alignment with smaller width */
+  }
+      
+  button.prev, button.next {
+    font-size: 1.5em; /* arrow size */
+    padding: 8px;
+  }
+
+  .discover-btn {
+    font-size: 1em;
+    padding: 8px 16px;
+  }
+}
+
+
+/* mobile */
+@media (max-width: 480px) {
+  .vertical-text-container {
+    left: 15px; 
+  }
+
+  .vertical-text {
+    font-size: 0.7em; 
+    letter-spacing: 2px; 
+  }
+
+  .vertical-line {
+    height: 60px; 
+  }
+
+  .slider-container {
+      width: 95vw; /* width for smaller devices */
+      height: 50vh; /* height for smaller devices */
+  }
+
+  .overlay-text {
+    position: absolute;
+    right: 0;
+    top: 20%;  
+  }
+  
+  .overlay-text h1 {
+    font-size: 1.5em;
+  }
+
+  .overlay-text h1 span {
+    display: block; /* each word a block element */
+    margin: 0; /* default margin */
+  }
+  
+  .overlay-text p {
+    font-size: 0.5em;
+  }
+  
+  .small-image {
+    width: 45%;
+    height: 40%;
+    top: 20%;
+    left: 10%;  
+    transform: translateY(-50%) translateX(0);
+  }
+  
+  .large-image {
+    width: 60%;
+  }
+  
+  .arrows-wrapper {
+    bottom: -1px; 
+    right: 5px; 
+  }
+    
+  button.prev, button.next {
+    font-size: 1.5em; /* reduce arrow size */
+    padding: 8px;
+  }
+
+  .discover-btn {
+    font-size: 0.9em;
+    padding: 6px 12px;  /* smaller padding for mobile */
+  }
+}
