@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1d1d1d;
+    font-family: inter;
+    overflow: hidden;
+  }
+  
+  .slider-container {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+  }
+  
+  .slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .large-image {
+    width: 70%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .small-image {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    width: 40%;
+    height: 60%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    text-align: left;
+    z-index: 3;
+    transform: translateY(-100%); /* Start off-screen above */
+    transition: transform 1s ease-in-out; /* Transition effect for moving down */
+  }
+  
+  .overlay-text h1 {
+    font-weight: bold;
+    font-size: 4.1em;
+    margin: 0;
+  }
+  
+  .overlay-text p {
+    font-size: 1.2em;
+  }
+  
+  .discover-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background 0.3s;
+  }
+  
+  .discover-btn:hover {
+    background: white;
+    color: black;
+  }
+  
+  .arrows-wrapper {
+    position: absolute;
+    bottom: -4px; /* Position the arrows below the slider */
+    right: 130px; /* Align the arrows to the right edge of the slider */
+    display: flex;
+    gap: 10px; /* Space between the arrows */
+    z-index: 5; /* Ensure the arrows appear above other elements */
+  }
+  
+  button.prev, button.next {
+    font-size: 2em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+  
+
+  
+  
+  button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
+  }
+
+  button:hover {
+    color: #b8b8b8; /* Change the color slightly on hover for better visibility */
+  }
+  
+
+
+/* Dots container */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+  
+  /* Individual dot styles */
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #555; /* Dark color for inactive dots */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Active dot style */
+  .dot.active {
+    background-color: #f0f0f0; /* Color of the active dot */
+    width: 20px;
+    height: 10px;
+    border-radius: 40%;
+  }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .slider-container {
+        width: 90vw; /* Slightly reduce the width */
+        height: 60vh; /* Adjust height */
+}
+  
+    .overlay-text h1 {
+      font-size: 2em;
+    }
+  
+    .overlay-text p {
+      font-size: 0.8em;
+    }
+  
+    .small-image {
+      width: 35%;
+      height: 50%;
+      top: 25%;
+      left: 10%;  /* Increase overlap */
+      transform: translateY(-50%) translateX(0);  /* Small image overlapping more */
+    }
+  
+    .large-image {
+      width: 60%;
+    }
+  
+    .arrows-wrapper {
+        bottom: -1px; /* Adjust spacing for smaller screens */
+        right: 5px; /* Ensure alignment with reduced width */
+      }
+    
+    button.prev, button.next {
+        font-size: 1.5em; /* Reduce arrow size */
+        padding: 8px;
+    }
+
+    .discover-btn {
+        font-size: 1em;
+        padding: 8px 16px;  /* Smaller padding for mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slider-container {
+        width: 95vw; /* Maximize width for smaller devices */
+        height: 50vh; /* Adjust height for compact layout */
+    }
+  
+    .overlay-text h1 {
+      font-size: 2em;
+    }
+  
+    .overlay-text p {
+      font-size: 0.6em;
+    }
+  
+    .small-image {
+      width: 45%;
+      height: 40%;
+      top: 20%;
+      left: 10%;  /* Increased overlap for mobile */
+      transform: translateY(-50%) translateX(0);
+    }
+  
+    .large-image {
+      width: 60%;
+    }
+  
+    .arrows-wrapper {
+        bottom: -1px; /* Adjust spacing for smaller screens */
+        right: 5px; /* Ensure alignment with reduced width */
+      }
+    
+    button.prev, button.next {
+        font-size: 1.5em; /* Reduce arrow size */
+        padding: 8px;
+    }
+
+    .discover-btn {
+        font-size: 0.9em;
+        padding: 6px 12px;  /* Smaller padding for mobile */
+    }
+  }

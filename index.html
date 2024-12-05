@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider with Overlay Design</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide">
+        <div class="large-image" style="background-image: url('images/image1.jpg');"></div>
+        <div class="small-image" style="background-image: url('images/sec3.jpg');"></div>
+        <div class="overlay-text">
+            <h1>
+                Modern Square
+            </h1>
+            <p>Find the perfect square frames that suit your style.</p>
+            <a href="#" class="discover-btn">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="large-image" style="background-image: url('images/image2.jpg');"></div>
+        <div class="small-image" style="background-image: url('images/sec4.jpg');"></div>
+        <div class="overlay-text">
+            <h1>Stylish Round</h1>
+            <p>Discover the elegance with our round glasses collection.</p>
+            <a href="#" class="discover-btn">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="large-image" style="background-image: url('images/image3.jpg');"></div>
+        <div class="small-image" style="background-image: url('images/sec5.jpg');"></div>
+        <div class="overlay-text">
+          <h1>Classic Aviator</h1>
+          <p>Modern Architectural Designs</p>
+          <a href="#" class="discover-btn">Discover more</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="arrows-wrapper">
+    <button class="next" onclick="changeSlide(1)">&#10094;</button>
+    <button class="prev" onclick="changeSlide(-1)">&#10095;</button>
+  </div>
+  
+
+  <!-- Pagination Dots -->
+  <div class="dots-container">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
